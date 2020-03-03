@@ -9,8 +9,8 @@ const router = express.Router();
 //-------------------------ALL COMMENTS
 router
     .get('/', (req, res, next) => {
-        console.log(req.params.article)
-        Comment.find({ article: req.params.article }).select(' username comment article _id').exec()
+        console.log(req.originalUrl.id)
+        Comment.find({ article: req.originalUrl.id }).select(' username comment article _id').exec()
             .then(comments => {
                 const response = {
                     count: comments.length,

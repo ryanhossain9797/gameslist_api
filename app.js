@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 })
 
 // Routes to handle requests
-app.use('/articles/:article/comments', commentRoutes);
+app.use('/articles/:id/comments', commentRoutes);
 app.use('/articles', articleRoutes);
 
 // Non Exixtent route error
