@@ -9,8 +9,8 @@ const router = express.Router();
 //-------------------------ALL COMMENTS
 router
     .get('/', (req, res, next) => {
-        console.log(req.query.article)
-        Comment.find({ article: req.query.article }).select(' username comment article _id').exec()
+        console.log(req.params.article)
+        Comment.find({ article: req.params.article }).select(' username comment article _id').exec()
             .then(comments => {
                 const response = {
                     count: comments.length,
@@ -55,25 +55,19 @@ router
 //-------------------------SINGLE COMMENT
 router
     .get('/:id', (req, res, next) => {
-        res.status(200).json(
-            {
-                message: "get comment ok"
-            }
-        )
+        res.status(200).json({
+            message: "get comment ok"
+        })
     })
     .patch('/:id', (req, res, next) => {
-        res.status(200).json(
-            {
-                message: "patch comment ok"
-            }
-        )
+        res.status(200).json({
+            message: "patch comment ok"
+        })
     })
     .delete('/:id', (req, res, next) => {
-        res.status(200).json(
-            {
-                message: "delete comment ok"
-            }
-        )
+        res.status(200).json({
+            message: "delete comment ok"
+        })
     });
 
 module.exports = router;
