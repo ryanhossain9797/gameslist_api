@@ -9,7 +9,7 @@ const router = express.Router();
 //-------------------------ALL COMMENTS
 router
     .get('/', (req, res, next) => {
-        console.log(req.originalUrl.id)
+        console.log(req.originalUrl)
         Comment.find({ article: req.originalUrl.id }).select(' username comment article _id').exec()
             .then(comments => {
                 const response = {
